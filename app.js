@@ -18,9 +18,9 @@ $('.num').on('click',function(){
 $('.operator').on('click',function(){
 
   var operator=$(this).text();
-  concat(operator); 
+  concat(operator);
     $('#result').text(operator);
-   
+
 
 })
 
@@ -43,17 +43,19 @@ $('.equals').on('click',function(){
   result=eval(calculate).toFixed(2);
   console.log(result.length);
  if(result.length<11){
+   $('#result').css("font-size","24px");
    $('#result').text(result);
  }else{
-   str='';
-   $('#input').text(str);
-  $('#result').text('digit limit met'); 
+   // str='';
+   // $('#input').text(str);
+   $('#result').css("font-size","14px");
+  $('#result').text(result);
  }
-    
-  
-   
-  
-   
+
+
+
+
+
 })
 
 function concat(item){
@@ -61,12 +63,12 @@ function concat(item){
     str=str.concat('');
      $('#input').text(str);
   }
-  else if(str.length<20){
+  else if(str.length<25){
     var last=str.substring(str.length - 1);
     if((item=='+'||item=='-'||item=='.'||item=='/'||item=='*'||item=='%' )&&(last=='+'||last=='-'||last=='.'||last=='/'||last=='*'||last=='%' )){
       str=str.concat('');
       $('#input').text(str);
-  
+
     }else{
          str=str.concat(item);
       $('#input').text(str);
